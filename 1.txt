@@ -1,0 +1,2 @@
+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
+git clone https://github.com/Hirokosan/hotdog_p.git
