@@ -1,57 +1,44 @@
 import React, { useEffect } from 'react';
 import './index.less';
 import { Button } from 'antd';
-import Bk2 from '../../img/bk2.png';
 import Bk3 from '../../img/bk3.png';
 import Sao from '../../img/sao.png';
 import Swiper1 from '../../img/swiper1.png';
 import Swiper2 from '../../img/swiper2.jpg';
 import Swiper3 from '../../img/swiper3.jpg';
-import Arrow from '../../img/arrow.png';
-import Position from '../../img/dingwei.png';
+import Arrow2 from '../../img/arrow.png';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from "swiper";
 import 'swiper/less';
 import 'swiper/less/pagination';
 import { Link } from 'react-router-dom';
+import Arrow from './components/Arrow';
+import Order from './components/Order/order';
+import Wares from '../Wares/wares';
+import Headswiper from './components/Headswiper/headswiper';
 
 
 function Home(props) {
-    const imgstyle = { backgroundImage: `url(${Bk3})` }
-    const swimgstyle = { backgroundImage: `url(${Bk2})` }
-
-
-
+    const imgstyle = { backgroundImage: `url(${Bk3})`, display: '' }
 
     useEffect(() => {
-        // let mySwiper = new Swiper('.swiper', {
-        //     pagination: {
-        //         el: '.swiper-pagination',
-        //         type: 'bullets',
-        //     }
-        // })
     }, [])
 
+    function handClick(){
+        props.history.push('/wares')
+    }
+
     return (
-        <>
+        <div>
             <div className="title">立可得售货机</div>
             <div className="back"></div>
-            <Swiper className='mySwiper'
-                loop={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Autoplay, Pagination]}>
-                <SwiperSlide><img src={Swiper1} /></SwiperSlide>
-                <SwiperSlide><img src={Swiper2} /></SwiperSlide>
-                <SwiperSlide><img src={Swiper3} /></SwiperSlide>
-            </Swiper>
+            <Headswiper></Headswiper>
             <div style={imgstyle} className='outsao'>
-                <div className='sao'>
+                <div className='sao'
+                    onClick={() => {
+                        handClick()
+                    }}>
                     <div>
                         <img src={Sao} />
                         <div>扫一扫</div>
@@ -59,20 +46,15 @@ function Home(props) {
                 </div>
             </div>
             <div className='nearby'>
-                <Link to=''>附近售货机<img src={Arrow} /></Link>
+                <Link to=''>附近售货机<img src={Arrow2} /></Link>
             </div>
-            <Swiper style={swimgstyle}>
-                <SwiperSlide><div>
-                    <div></div>
-                    <div>
-                        <img src={Position}/>
-                        <div>去这里</div>
-                    </div>
-                </div></SwiperSlide>
-                <SwiperSlide>2</SwiperSlide>
-                <SwiperSlide>3</SwiperSlide>
-            </Swiper>
-        </>
+            <Arrow></Arrow>
+            <div className='row1'>
+                <div style={{ float: 'left' }}>最近订单</div>
+                <Link to='' style={{ float: 'right' }}>查看历史</Link>
+            </div>
+            <Order></Order>
+        </div>
     );
 }
 
