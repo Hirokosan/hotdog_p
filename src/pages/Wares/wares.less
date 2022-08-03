@@ -9,7 +9,7 @@
     border-radius: 50%;
     position: absolute;
     left: 5%;
-    top: 20px;
+    top: 25px;
 }
 
 .outgoods {
@@ -58,4 +58,46 @@
     color: #858484;
     text-align: center;
     margin-top: 15px;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    opacity: 0.3;
+    // left: 0;
+    // top: 0;
+    z-index: 5;
+}
+
+.masktop {
+    transform: translate(-70%,-50%);
+    position: fixed;
+    top: 50%;
+    margin: 0 auto;
+    left: 50%;
+    z-index: 15;
+}
+
+.maskrout {
+    width: 140%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.maskrow1 {
+    border-bottom: 1px solid #858484;
+    padding: 0 5px 15px 5px;
+}
+.maskrow2{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-weight: bold;
+}
+.maskrow2 div:first-child{
+    color: #0486ff;
+    margin-left: 20px;
 }

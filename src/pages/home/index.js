@@ -46,12 +46,12 @@ function Home(props) {
                 </div>
             </div>
             <div className='nearby'>
-                <Link to=''>附近售货机<img src={Arrow2} /></Link>
+                <Link to='/nearby'>附近售货机<img src={Arrow2} /></Link>
             </div>
             <Arrow></Arrow>
             <div className='row1'>
                 <div style={{ float: 'left' }}>最近订单</div>
-                <Link to='' style={{ float: 'right' }}>查看历史</Link>
+                <Link to='/history' style={{ float: 'right' }}>查看历史</Link>
             </div>
             <Order></Order>
         </div>
