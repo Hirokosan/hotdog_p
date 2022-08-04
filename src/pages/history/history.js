@@ -5,8 +5,12 @@ import { withRouter } from "react-router";
 import Order from "../home/components/Order/order";
 import Calendar from '../../img/calendar.png';
 import Arrow from '../../img/arrow.png';
+import { DatePicker, Space } from 'antd';
+
 
 function History(props) {
+
+    const { RangePicker } = DatePicker;
     
     function handClick() {
         props.history.push('/')
@@ -22,7 +26,10 @@ function History(props) {
             <div className="title1">订单管理</div>
             <div className="date">
                 <img src={Calendar} />
-                <div>2020.06.09~2020.07.09</div>
+                {/* <div>2020.06.09~2020.07.09</div> */}
+                <Space direction="vertical">
+                     <RangePicker showTime/>
+                </Space>
                 <img src={Arrow} />
             </div>
             <Order></Order>
