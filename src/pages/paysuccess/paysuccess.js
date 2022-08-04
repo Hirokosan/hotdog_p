@@ -5,17 +5,22 @@ import { withRouter } from "react-router";
 import PayS from '../../img/pay_success.png';
 
 function Paysuccess(props) {
-    const [leavetime, setLeavetime] = useState(3000)
+    var mytime;
+    const time = ()=>{
+        mytime = setTimeout(()=>{
+            props.history.push('/wares')
+        },3000)
+    }
 
     useEffect(() => {
-        setTimeout(() => {
-            props.history.push('/wares')
-        }, leavetime)
-    }, [leavetime])
+        time()
+        return()=>{
+            clearTimeout(mytime)
+        }
+    }, )
 
     function handClick() {
         props.history.push('/wares')
-        setLeavetime(null)
     }
     return (
         <div className="detail">
